@@ -2,19 +2,28 @@ from django.db import models
 
 
 class Professor(models.Model):
-    name = models.CharField(max_length=200)
-    school = models.CharField(max_length=200)
+    professor_name = models.CharField(max_length=200)
+    school_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.professor_name
 
 
-class Subject(models.Model):
+class Course(models.Model):
     professor = models.ForeignKey(Professor)
-    name = models.CharField(max_length=200)
+    course_name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.course_name
 
 
 class Student(models.Model):
     professor = models.ForeignKey(Professor)
     subject = models.ForeignKey(Subject)
-    name = models.CharField(max_length=200)
+    student_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     age = models.IntegerField()
     school_grade = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.student_name

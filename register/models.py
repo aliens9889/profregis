@@ -19,7 +19,7 @@ class Course(models.Model):
 
 class Student(models.Model):
     professor = models.ForeignKey(Professor)
-    subject = models.ForeignKey(Subject)
+    course = models.ForeignKey(Course)
     student_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     age = models.IntegerField()

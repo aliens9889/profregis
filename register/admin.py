@@ -7,11 +7,11 @@ class CourseInline(admin.TabularInline):
     extra = 3
 
 
-class ProfessorAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None, {'fields': ['professor_name']}),
-        ('Course', {'fields': ['course_name']}),
-    ]
+# class ProfessorAdmin(admin.ModelAdmin):
 
-    inlines = [CourseInline]
+    # inlines = [CourseInline]
     # list_display = ('')
+
+admin.site.register(Professor)
+admin.site.register(Course)
+admin.site.register(Student)

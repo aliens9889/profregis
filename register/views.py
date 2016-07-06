@@ -25,3 +25,14 @@ def course_detail(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     return render(request,'register/course_detail.html', {'course': course})
 
+
+def student_list(request):
+    student_list = Student.objects.order_by('student_name')
+    context = {'student_list': student_list}
+    return render(request, 'register/student_list.html', context)
+
+
+def student_detail(request, student_id):
+    student = get_object_or_404(Student, pk=student_id)
+    return render(request, 'register/student_detail.html', {'student': student})
+

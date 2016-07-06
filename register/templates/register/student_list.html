@@ -1,0 +1,15 @@
+<h2>Students List:</h2>
+
+{% if student_list %}
+<div>
+    {% for student in student_list %}
+    <div>
+        <h4><a href="{% url 'register:student_detail' student.id %}">
+            {{ student.student_name }}
+        </a></h4>
+    </div>
+    {% endfor %}
+{% else %}
+<p>There's not Students here</p>
+</div>
+{% endif %}

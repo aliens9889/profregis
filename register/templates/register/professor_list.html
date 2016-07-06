@@ -1,0 +1,16 @@
+<h2>Professors List</h2>
+
+{% if professor_list %}
+    <div>
+    {% for professor in professor_list %}
+    <div>
+        <h4><a href="{% url 'register:professor_detail' professor.id %}">
+            {{ professor.professor_name }}
+        </a></h4>
+    </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <p>No Professors are available</p>
+
+{% endif %}

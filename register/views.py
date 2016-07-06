@@ -1,13 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import  generic
 
-from .models import Professor,Course,Student
-
-class IndexView(generic.View):
-    model = Professor
-    template_name = 'register/index.html'
+from .models import Professor, Course, Student
 
 
+def professor_list(request):
+    professor_list = Professor.objects.order_by('-professor_name')
+    context = {'professor_list': professor_list}
+    return render(request,'register/professor_list.html', context)
 
 
-# Create your views here.
+def professor_detail(request, professor_id):
+    professor = get_object_or_404(Professor, pk=professor_id)
+    return render(request,'register/professor_detail', {'professor': professor})
+

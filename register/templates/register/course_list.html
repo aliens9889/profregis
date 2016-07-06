@@ -1,0 +1,15 @@
+<h2>Course List:</h2>
+
+{% if course_list %}
+<div>
+    {% for course in course_list %}
+    <div>
+    <h4><a href="{% url 'register:course_detail' course.id %}">
+        {{ course.course_name }}
+    </a></h4>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No Course available</p>
+</div>
+{% endif %}

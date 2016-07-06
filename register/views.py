@@ -12,5 +12,16 @@ def professor_list(request):
 
 def professor_detail(request, professor_id):
     professor = get_object_or_404(Professor, pk=professor_id)
-    return render(request,'register/professor_detail', {'professor': professor})
+    return render(request,'register/professor_detail.html', {'professor': professor})
+
+
+def course_list(request):
+    course_list = Course.objects.order_by('course_name')
+    context = {'course_list': course_list}
+    return render(request, 'register/course_list.html', context)
+
+
+def course_detail(request, course_id):
+    course = get_object_or_404(Course, pk=course_id)
+    return render(request,'register/course_detail.html', {'course': course})
 
